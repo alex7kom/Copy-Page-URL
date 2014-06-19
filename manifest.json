@@ -1,0 +1,20 @@
+{
+  "name": "Copy Page URL",
+  "description" : "Copy Page URL from context menu",
+  "version": "0.1",
+  "permissions": [
+    "background",
+    "clipboardWrite",
+    "contextMenus"
+  ],
+  "icons": {
+    "16": "copy_16.png",
+    "128": "copy_128.png"
+  },
+  "background": {
+    "scripts": [
+      "copy.js"
+    ]
+  },
+  "manifest_version": 2
+}
