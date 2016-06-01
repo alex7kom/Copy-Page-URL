@@ -23,3 +23,13 @@ chrome.contextMenus.create({
     copy(page.pageUrl);
   }
 });
+
+chrome.contextMenus.create({
+  'title': 'Copy Frame URL',
+  'contexts':[
+    'frame'
+  ],
+  'onclick': function(page) {
+    copy(page.frameUrl);
+  }
+});

@@ -1,7 +1,7 @@
 {
   "name": "Copy Page URL",
   "description" : "Copy Page URL from context menu",
-  "version": "0.1",
+  "version": "0.2",
   "permissions": [
     "background",
     "clipboardWrite",
