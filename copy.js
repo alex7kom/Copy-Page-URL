@@ -33,3 +33,7 @@ chrome.contextMenus.create({
     copy(page.frameUrl);
   }
 });
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+  copy(tab.url);
+});
