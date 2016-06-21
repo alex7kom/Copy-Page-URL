@@ -5,7 +5,8 @@
   "permissions": [
     "background",
     "clipboardWrite",
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ],
   "icons": {
     "16": "copy_black_16.png",
@@ -14,8 +15,13 @@
   "browser_action": {},
   "background": {
     "scripts": [
+      "defaults.js",
       "bg.js"
     ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
   },
   "manifest_version": 2
 }

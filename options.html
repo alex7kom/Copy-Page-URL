@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copy Page URL Options</title>
+  <style type="text/css">
+    input[type="radio"] {
+      vertical-align: middle;
+    }
+
+    .option {
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .delimeter {
+      display: inline-block;
+      width: 20px;
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div>
+  Choose the toolbar icon: <br>
+  <label class="option toolbar_icon" for="toolbar_icon:black">
+    <input type="radio" name="toolbar_icon" id="toolbar_icon:black">
+    <img src="copy_black_128.png" class="icon">
+  </label>
+  <span class="delimeter"></span>
+  <label class="option toolbar_icon" for="toolbar_icon:gray">
+    <input type="radio" name="toolbar_icon" id="toolbar_icon:gray">
+    <img src="copy_gray_128.png" class="icon">
+  </label>
+</div>
+<script src="defaults.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

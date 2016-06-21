@@ -8,6 +8,12 @@ function copy(text) {
   document.execCommand('Copy', false, null);
 }
 
+function setIcon(icon) {
+  chrome.browserAction.setIcon({
+    path: 'copy_' + icon + '_128.png'
+  });
+}
+
 chrome.contextMenus.create({
   'title': 'Copy Page URL',
   'contexts':[
@@ -36,4 +42,19 @@ chrome.contextMenus.create({
 
 chrome.browserAction.onClicked.addListener(function(tab) {
   copy(tab.url);
+});
+
+chrome.runtime.onMessage.addListener(function(message) {
+  if (!message.options) {
+    return;
+  }
+
+  var opts = message.options;
+  if (opts.toolbar_icon) {
+    setIcon(opts.toolbar_icon);
+  }
+});
+
+chrome.storage.sync.get(defaults, function(items) {
+  setIcon(items.toolbar_icon);
 });
