@@ -8,8 +8,8 @@
     "contextMenus"
   ],
   "icons": {
-    "16": "copy_16.png",
-    "128": "copy_128.png"
+    "16": "copy_black_16.png",
+    "128": "copy_black_128.png"
   },
   "browser_action": {},
   "background": {
