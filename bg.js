@@ -14,6 +14,12 @@ function setIcon(icon) {
   });
 }
 
+function setBadgeText(text) {
+  chrome.browserAction.setBadgeText({
+    text: text
+  });
+}
+
 chrome.contextMenus.create({
   'title': 'Copy Page URL',
   'contexts':[
@@ -40,8 +46,14 @@ chrome.contextMenus.create({
   }
 });
 
+chrome.browserAction.setBadgeBackgroundColor({
+  color: '#32cd32'
+});
+
 chrome.browserAction.onClicked.addListener(function(tab) {
   copy(tab.url);
+  setBadgeText('OK!');
+  setTimeout(setBadgeText.bind(null, ''), 3 * 1000);
 });
 
 chrome.runtime.onMessage.addListener(function(message) {
