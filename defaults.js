@@ -1,3 +1,4 @@
 var defaults = {
-  toolbar_icon: 'black'
+  toolbar_icon: 'black',
+  clean_url: false
 };

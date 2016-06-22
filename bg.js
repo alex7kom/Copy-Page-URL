@@ -1,10 +1,15 @@
+var options;
+
 var elem = document.createElement('input');
-elem.setAttribute('id','copy');
 document.body.appendChild(elem);
 
 function copy(text) {
-  document.getElementById('copy').value = text;
-  document.getElementById('copy').select();
+  if (options.clean_url) {
+    elem.value = cleanURL(text);
+  } else {
+    elem.value = text;
+  }
+  elem.select();
   document.execCommand('Copy', false, null);
 }
 
@@ -18,6 +23,24 @@ function setBadgeText(text) {
   chrome.browserAction.setBadgeText({
     text: text
   });
+}
+
+function cleanURL(url) {
+  var a = document.createElement('a');
+  a.href = url;
+  a.search = removeTrackingTags(a.search.replace(/^\?/,''));
+  a.hash = removeTrackingTags(a.hash.replace(/^#/,''));
+
+  return a.href;
+}
+
+function removeTrackingTags(str) {
+  return str
+    .split('&')
+    .filter(function(item) {
+      return !/^(utm_|from=|_openstat)/.test(item);
+    })
+    .join('&');
 }
 
 chrome.contextMenus.create({
@@ -61,6 +84,10 @@ chrome.runtime.onMessage.addListener(function(message) {
     return;
   }
 
+  Object.keys(message.options).forEach(function(key) {
+    options[key] = message.options[key];
+  });
+
   var opts = message.options;
   if (opts.toolbar_icon) {
     setIcon(opts.toolbar_icon);
@@ -68,5 +95,6 @@ chrome.runtime.onMessage.addListener(function(message) {
 });
 
 chrome.storage.sync.get(defaults, function(items) {
+  options = items;
   setIcon(items.toolbar_icon);
 });
