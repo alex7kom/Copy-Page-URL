@@ -1,6 +1,6 @@
 {
   "name": "Copy Page URL",
-  "description" : "Copy Page URL from context menu",
+  "description" : "Copy Page URL from context menu or toolbar",
   "version": "0.3",
   "permissions": [
     "background",
