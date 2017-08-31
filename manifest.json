@@ -3,6 +3,7 @@
   "description" : "Copy Page URL from context menu or toolbar",
   "version": "0.4",
   "permissions": [
+    "activeTab",
     "clipboardWrite",
     "contextMenus",
     "storage"
