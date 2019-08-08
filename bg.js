@@ -43,34 +43,40 @@ function removeTrackingTags(str) {
     .join('&');
 }
 
-chrome.contextMenus.create({
-  'title': 'Copy Page URL',
-  'contexts':[
-    'page',
-    'selection',
-    'link',
-    'editable',
-    'image',
-    'video',
-    'audio'
-  ],
-  'onclick': function(page) {
-    copy(page.pageUrl);
-  }
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.contextMenus.create({
+    'id': 'copy-page-url',
+    'title': 'Copy Page URL',
+    'contexts':[
+      'page',
+      'selection',
+      'link',
+      'editable',
+      'image',
+      'video',
+      'audio'
+    ]
+  });
+
+  chrome.contextMenus.create({
+    'id': 'copy-frame-url',
+    'title': 'Copy Frame URL',
+    'contexts':[
+      'frame'
+    ]
+  });
+
+  chrome.browserAction.setBadgeBackgroundColor({
+    color: '#32cd32'
+  });
 });
 
-chrome.contextMenus.create({
-  'title': 'Copy Frame URL',
-  'contexts':[
-    'frame'
-  ],
-  'onclick': function(page) {
-    copy(page.frameUrl);
+chrome.contextMenus.onClicked.addListener(function(info) {
+  if (info.menuItemId === 'copy-page-url') {
+    copy(info.pageUrl);
+  } else if (info.menuItemId === 'copy-frame-url') {
+    copy(info.frameUrl);
   }
-});
-
-chrome.browserAction.setBadgeBackgroundColor({
-  color: '#32cd32'
 });
 
 chrome.browserAction.onClicked.addListener(function(tab) {

@@ -17,7 +17,8 @@
     "scripts": [
       "defaults.js",
       "bg.js"
-    ]
+    ],
+    "persistent": false
   },
   "options_ui": {
     "page": "options.html",
