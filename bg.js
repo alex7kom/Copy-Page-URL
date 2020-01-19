@@ -87,6 +87,11 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   timeout = setTimeout(setBadgeText.bind(null, ''), 1000);
 });
 
+chrome.tabs.onActivated.addListener(function() {
+  clearTimeout(timeout);
+  setBadgeText('');
+});
+
 chrome.runtime.onMessage.addListener(function(message) {
   if (!message.options) {
     return;
