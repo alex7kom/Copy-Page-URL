@@ -1,5 +1,11 @@
 # Copy Page URL Changelog
 
+# 0.7
+
+* 'OK!' badge now disappears on tab change
+* 'OK!' badge disappearance timeout decreased to 1 second
+* Fixed race condition with 'OK!' disappearance timeout on multiple clicks
+
 # 0.6
 
 * Converted persistent background page to an ephemeral event page so the extension doesn't stay in memory when it's not needed.
