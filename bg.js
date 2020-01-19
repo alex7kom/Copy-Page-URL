@@ -1,4 +1,5 @@
 var options;
+var timeout;
 
 var elem = document.createElement('input');
 document.body.appendChild(elem);
@@ -82,7 +83,8 @@ chrome.contextMenus.onClicked.addListener(function(info) {
 chrome.browserAction.onClicked.addListener(function(tab) {
   copy(tab.url);
   setBadgeText('OK!');
-  setTimeout(setBadgeText.bind(null, ''), 3 * 1000);
+  clearTimeout(timeout);
+  timeout = setTimeout(setBadgeText.bind(null, ''), 3 * 1000);
 });
 
 chrome.runtime.onMessage.addListener(function(message) {
