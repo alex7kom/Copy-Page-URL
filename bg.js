@@ -84,7 +84,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   copy(tab.url);
   setBadgeText('OK!');
   clearTimeout(timeout);
-  timeout = setTimeout(setBadgeText.bind(null, ''), 3 * 1000);
+  timeout = setTimeout(setBadgeText.bind(null, ''), 1000);
 });
 
 chrome.runtime.onMessage.addListener(function(message) {
