@@ -2,6 +2,12 @@
 
 A Google Chrome extension that allows you to copy page URL from the context menu or on click on the extension icon.
 
+![Copy Page URL Screenshot](screenshot.jpg)
+
+## Installation
+
+[Download the ZIP of the latest release](https://github.com/alex7kom/Copy-Page-URL/releases/latest) and extract it wherever you want. Then open extension list page of your Chromium browser, switch to Developer mode, choose load unpacked extension and then choose the folder where you extracted the extension. Enjoy!
+
 ## Permissions
 
 * **activeTab** - allows the extension to obtain the URL of the currently viewed web page after click on the extension icon
